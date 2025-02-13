@@ -5,8 +5,7 @@ import os
 FRIEND = "%friend_name%"
 IAM = "%my_name%"
 SITE= "%website%"
-letter = """
-From: novikovaantonina93a@yandex.ru
+letter = """From: novikovaantonina93a@yandex.ru
 To: profil.utch@yandex.ru
 Subject: Invitation
 Content-Type: text/plain; charset="UTF-8";
