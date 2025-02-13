@@ -7,6 +7,7 @@ IAM = "%my_name%"
 SITE= "%website%"
 sender = "novikovaantonina93a@yandex.ru"
 recipient = "profil.utch@yandex.ru"
+replacements = {"{sender}":"novikovaantonina93a@yandex.ru","{recipient}":"{profil.utch@yandex.ru}", "{FRIEND}":"Арсений", "{IAM}":"Антонина", "{SITE}": "https://dvmn.org/profession-ref-program/novikovantoninalex/ayYBP/"}
 letter = """From: {sender}
 To: {recipient}
 Subject: Invitation
@@ -33,7 +34,7 @@ Content-Type: text/plain; charset="UTF-8";
 На курсы, которые еще не вышли, можно подписаться и получить уведомление о релизе сразу на имейл."""
 
 
-replacements = {"{FRIEND}":"Арсений", "{IAM}":"Антонина", "{SITE}": "https://dvmn.org/profession-ref-program/novikovantoninalex/ayYBP/"}
+
 for old, new in replacements.items():
     letter = letter.replace(old, new)
     message = letter.encode("UTF-8")
@@ -43,5 +44,5 @@ login = os.getenv('LOGIN')
 password = os.getenv('PASSWORD')
 server = smtplib.SMTP_SSL('smtp.yandex.ru', 465)
 server.login(login, password)
-server.sendmail('sender', 'recipient', message)
+server.sendmail(sender, recipient, message)
 server.quit()
