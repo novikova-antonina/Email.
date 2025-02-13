@@ -32,7 +32,7 @@ Content-Type: text/plain; charset="UTF-8";
 На курсы, которые еще не вышли, можно подписаться и получить уведомление о релизе сразу на имейл."""
 
 
-replacements = {"{FRIEND}":"Александр", "{IAM}":"Антонина", "{SITE}": "https://dvmn.org/profession-ref-program/novikovantoninalex/ayYBP/"}
+replacements = {"{FRIEND}":"Арсений", "{IAM}":"Антонина", "{SITE}": "https://dvmn.org/profession-ref-program/novikovantoninalex/ayYBP/"}
 for old, new in replacements.items():
     letter = letter.replace(old, new)
     message = letter.encode("UTF-8")
