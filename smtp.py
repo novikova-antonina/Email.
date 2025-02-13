@@ -1,12 +1,14 @@
 import smtplib
 import os
-
+from dotenv import load_dotenv
 
 FRIEND = "%friend_name%"
 IAM = "%my_name%"
 SITE= "%website%"
-letter = """From: novikovaantonina93a@yandex.ru
-To: profil.utch@yandex.ru
+sender = "novikovaantonina93a@yandex.ru"
+recipient = "profil.utch@yandex.ru"
+letter = """From: {sender}
+To: {recipient}
 Subject: Invitation
 Content-Type: text/plain; charset="UTF-8";
 
@@ -35,12 +37,11 @@ replacements = {"{FRIEND}":"Арсений", "{IAM}":"Антонина", "{SITE}
 for old, new in replacements.items():
     letter = letter.replace(old, new)
     message = letter.encode("UTF-8")
-from dotenv import load_dotenv
+
 load_dotenv()  
 login = os.getenv('LOGIN')
 password = os.getenv('PASSWORD')
 server = smtplib.SMTP_SSL('smtp.yandex.ru', 465)
 server.login(login, password)
-server.sendmail('novikovaantonina93a@yandex.ru', 'profil.utch@yandex.ru', message)
-print('My congratulations! See SPAM folder.')
+server.sendmail('sender', 'recipient', message)
 server.quit()
